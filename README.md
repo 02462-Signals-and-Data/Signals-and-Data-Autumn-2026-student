@@ -13,14 +13,20 @@ Before beginning to use this environment, we recommend setting up a virtual envi
    3. **If you don't have conda and are on Linux/macOS**, open a terminal and enter `curl -LsSf https://astral.sh/uv/install.sh | sh`, if you do not have curl, enter `wget -qO- https://astral.sh/uv/install.sh | sh`
       1. **If you get an error with the MacOS operation above**, install with Homebrew instead. Firstly, install Homebrew using `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` then run `brew install uv`
 2. **Clone the git repository**:
-   1.  **If you have git installed and are on windows**, enter *git bash* prompt and enter `git clone https://github.com/02462-Signals-and-Data/Signals-and-Data-Autumn-2026-student.git`
-   2.  **If you have git installed and are on Linux/macOS**, enter a terminal and enter `git clone https://github.com/02462-Signals-and-Data/Signals-and-Data-Autumn-2026-student.git`
-   3.  **If you do not have git installed**, follow [this guide](https://git-scm.com/downloads) to install git
-   4.  **If you *for some reason*** don't want to use git, click "Code" and "Download ZIP" and unzip in the location you want to run it from
+   1.  Before cloning the repository, navigate to the folder where you want the repository to be placed. You can do this directly in a terminal, but we recommend opening that folder in VS Code or another IDE and then opening its terminal.
+       1.  In VS Code, open the folder where you want the repository to be placed, for example `Documents/DTU`, with "File" > "Open Folder...". Then open a terminal with "Terminal" > "New Terminal".
+       2.  The terminal prompt says which folder you are currently in. For example, it might end with `PS C:\Users\YourName\Documents\DTU>` on Windows, `yourname@MacBook DTU %` on macOS, or `yourname@computer:~/Documents/DTU$` on Linux.
+       3.  You can also enter `Get-Location` in PowerShell, or `pwd` in Git Bash/Linux/macOS, to check which folder the terminal is in.
+       4.  Only clone the repository once the terminal is in the folder where you want it to be placed. `git clone` will create a new folder called `Signals-and-Data-Autumn-2026-student` inside your current folder.
+   2.  **If you have git installed and are on windows**, enter *git bash* prompt and enter `git clone https://github.com/02462-Signals-and-Data/Signals-and-Data-Autumn-2026-student.git`
+   3.  **If you have git installed and are on Linux/macOS**, enter a terminal and enter `git clone https://github.com/02462-Signals-and-Data/Signals-and-Data-Autumn-2026-student.git`
+   4.  **If you do not have git installed**, follow [this guide](https://git-scm.com/downloads) to install git
+   5.  **If you *for some reason*** don't want to use git, click "Code" and "Download ZIP" and unzip in the location you want to run it from
 3.  **Sync UV environment**:
     1.  Enter the terminal you used to install UV (likely powershell if windows, regular terminal otherwise)
     2.  Navigate to the folder you copied the git repository to with `cd` followed by the path to the folder
-    3.  Enter `uv sync` - this should install all necessary packages from the *uv.lock* file to a new folder called .venv
+    3.  If you cloned the repository using the commands above and are still in the same terminal, enter `cd Signals-and-Data-Autumn-2026-student`
+    4.  Enter `uv sync` - this should install all necessary packages from the *uv.lock* file to a new folder called .venv
 4.  **Open Jupyter notebooks:**
     1.  To use jupyter notebook directly:
         1.  Open a terminal with the copied git folder as the directory 
@@ -43,7 +49,7 @@ Before beginning to use this environment, we recommend setting up a virtual envi
 - If you feel any packages are missing, you always install them with `uv add package-name`, this will also add them to the *pyproject.toml* file present in the project. 
 - Packages can be removed with `uv remove package-name` followed by `uv sync`. Running `uv lock`, reproduces the *uv.lock* file, and allows for you to export a 'snapshot' environment to potential collaborators.
 - The reason we recommend uv as opposed to pip, is to avoid the typical problems of package mismanagement that comes with machine learning when dictated by pip. Usually this comes in the form of pip correctly installing a version of a package with depdencies, and then overwriting those dependecies when installing the next package. UV fixes this by having the *uv.lock* file define a specific 'tree' of dependency resolution, and not allowing subdependency mismatches between packages specified in the pyproject.toml file
-
+  
 ## Setup virtual environment using pip (not recommended)
 
 Here we require pip, so we assume you have conda or simliar program with access to pip installed
@@ -51,14 +57,14 @@ Here we require pip, so we assume you have conda or simliar program with access 
 1. Follow step 2 above to clone the git repository
 
 2. **Make a new conda environment** (not necessary, but HIGHLY recommended)
-   1. Enter a conda prompt and write `conda create --name signals-and-data python=3.11 -y`
+   1. Enter a conda prompt and write `conda create --name signals-and-data python=3.12 -y`
    2. Activate the new conda environment with `conda activate signals-and-data`
    3. Install the packages in the requirements.txt file with `pip install -r requirements.txt` (make sure you are in the same folder as the requirements.txt file!)
 3. **Open Jupyter notebooks:**
    1. To use jupyter notebook directly:
       1. Open a conda terminal
       2. Ensure you have the correct virtual environment chosen by running `conda activate signals-and-data`
-      3. Enter `jupyter notebook` to open a jupyter notebook
+      3. Enter `jupyter lab` to open a jupyter notebook
    2. To use notebooks in vscode:
       1. Open any of of the week's exercises
       2. Enter ctrl+shift+p to enter the command window
@@ -68,7 +74,7 @@ Here we require pip, so we assume you have conda or simliar program with access 
       6. Click "select another kernel"
       7. Click "python environments"
       8. Choose the aforementioned newly created Python environment "signals-and-data"
-  
+
 - We assume you can install and remove packages using pip yourselves
 - A warning, pip doesn't have a very good dependency solver, and you may run into issues where it wants to install one package that depends on a specific version of subdependency A, while later installing another package which depends on another version of subdependency A, this will cause pip to overwrite the version of subdependency A based on whatever package that requires it was installed last. 
 

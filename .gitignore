@@ -1,0 +1,40 @@
+week_9/data/
+assignment_3/data/
+
+# Saved model from week 8
+week_8/models_char/
+
+# Reviews data present in week 7 ~250Mb
+week_7/data/Reviews.csv
+
+# Any pycache and ipynb checkpoints files
+**/__pycache__/*
+**/.ipynb_checkpoints/
+
+# Any saved models, presumably some kind of NN will be in these folders... 
+*saved_models/
+
+/assignment_1/data/*
+__pycache__/
+
+week_10/glove.6B/
+week_10/wiki-news-300d-1M.vec
+/week_5/eeg_data/
+# *.csv
+*.gz
+/week_3/data
+*.pth
+*.zip
+/assignment_1/Assignment 1 - VGG16/
+week_8/A4_G01.ipynb
+/week_10/data
+/week_10/__pycache__
+/week_10/plots
+*glove.*
+*.npz
+week_10/GoogleNews-vectors-negative300-SLIM.bin
+week_10/word2vec-google-news-300.model.vectors.npy
+/assignment_2/Assignment 2 - EEG Download 12 November, 2024 904 AM (Group Submission Folder)
+/assignment_2/Assignment 2 - EEG Download 19 November, 2024 310 PM (Group Submission Folder)
+.idea/
+.DS_Store
